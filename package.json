@@ -1,0 +1,16 @@
+{
+  "name": "bricks",
+  "version": "0.0.1",
+  "author": "Carl Létourneau",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "start": "parcel src/index.html --open",
+    "build": "parcel build src/index.html",
+    "test": "jasmine"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.10.0",
+    "parcel": "^2.0.1"
+  }
+}
