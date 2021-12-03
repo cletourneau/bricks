@@ -4,13 +4,16 @@
   "author": "Carl Létourneau",
   "scripts": {
     "clean": "rm -rf dist",
-    "start": "parcel src/index.html --open",
-    "build": "parcel build src/index.html",
-    "test": "jasmine"
+    "start": "parcel src/index.pug --open",
+    "build": "parcel build src/index.pug",
+    "test-unit": "jasmine",
+    "test-e2e": "testcafe chrome e2e/"
   },
   "license": "MIT",
   "devDependencies": {
+    "@parcel/transformer-pug": "^2.0.1",
     "jasmine": "^3.10.0",
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "testcafe": "^1.17.1"
   }
 }
