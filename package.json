@@ -7,13 +7,13 @@
     "start": "parcel src/index.pug --open",
     "build": "parcel build src/index.pug",
     "test-unit": "jasmine",
-    "test-e2e": "testcafe chrome e2e/"
+    "test-e2e": "cypress open"
   },
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-pug": "^2.0.1",
+    "cypress": "^9.1.1",
     "jasmine": "^3.10.0",
-    "parcel": "^2.0.1",
-    "testcafe": "^1.17.1"
+    "parcel": "^2.0.1"
   }
 }
