@@ -6,14 +6,17 @@
     "clean": "rm -rf dist",
     "start": "parcel src/index.pug --open",
     "build": "parcel build src/index.pug",
-    "test-unit": "jasmine",
+    "test-unit": "jest",
     "test-e2e": "cypress open"
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
     "@parcel/transformer-pug": "^2.0.1",
+    "babel-jest": "^27.4.2",
     "cypress": "^9.1.1",
-    "jasmine": "^3.10.0",
+    "jest": "^27.4.3",
     "parcel": "^2.0.1"
   }
 }
