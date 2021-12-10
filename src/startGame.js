@@ -2,8 +2,7 @@ import {Game} from "./game";
 
 
 export function start() {
-    let canvas = document.getElementById("gameCanvas")
-    let game = new Game(canvas)
+    let game = new Game("gameCanvas")
 
     let latestAnimate = performance.now()
 

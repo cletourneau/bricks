@@ -9,15 +9,11 @@ performance.now = jest.fn(() => {
     return startTime
 })
 
-beforeEach(() => {
-    document.body.innerHTML = "<canvas id='gameCanvas'>"
-})
-
-test('creates the game with the canvas element', () => {
+test('creates the game with the canvas element id', () => {
     start();
     expect(Game).toHaveBeenCalledTimes(1);
 
-  expect(Game.mock.calls[0][0]).not.toBeNull()
+    expect(Game.mock.calls[0][0]).toEqual('gameCanvas')
     // expect(canvas) to have some attributes that we can relate
 });
 
@@ -32,7 +28,6 @@ test('each animation frame updates the game with a delta time from the start', (
     Game.mockImplementation(() => {
         return {update: gameUpdate}
     })
-
 
     start();
     const animate = window.requestAnimationFrame.mock.calls[0][0]

@@ -1,24 +1,22 @@
 import {Paddle} from "./paddle";
 
 export class Game {
-    constructor(canvas) {
-        this.canvas = canvas;
-        this.context = canvas.getContext("2d");
+    constructor(canvasId) {
+        const canvas = document.getElementById(canvasId)
+        this.context = canvas.getContext('2d')
+        this.canvasSize = {width: canvas.clientWidth, height: canvas.clientHeight}
+        this.paddle = new Paddle(this.canvasSize);
+        this.listenForMouseMovement(canvas);
+    }
 
-        this.width = canvas.clientWidth;
-        this.height = canvas.clientHeight;
-        this.paddle = new Paddle({x: this.width / 2, y: this.height - 10});
-        this.listenForMouseMovement();
+    listenForMouseMovement(canvas) {
+        canvas.addEventListener('mousemove', e => {
+            this.paddle.move(e.offsetX)
+        })
     }
 
     update(delta) {
-        this.context.clearRect(0, 0, this.width, this.height);
-        this.paddle.update(this.context);
-    }
-
-    listenForMouseMovement() {
-        this.canvas.addEventListener('mousemove', e => {
-            this.paddle.position.x = e.offsetX;
-        })
+        // this.context.clearRect(0, 0, this.width, this.height);
+        // this.paddle.update(this.context);
     }
 }
