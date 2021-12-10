@@ -13,9 +13,12 @@ beforeEach(() => {
     document.body.innerHTML = "<canvas id='gameCanvas'>"
 })
 
-test('creates the game', () => {
+test('creates the game with the canvas element', () => {
     start();
     expect(Game).toHaveBeenCalledTimes(1);
+
+  expect(Game.mock.calls[0][0]).not.toBeNull()
+    // expect(canvas) to have some attributes that we can relate
 });
 
 test('requests the animation frame', () => {
