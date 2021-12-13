@@ -13,7 +13,7 @@ test('creates the game with the canvas element id', () => {
     start();
     expect(Game).toHaveBeenCalledTimes(1);
 
-    expect(Game.mock.calls[0][0]).toEqual('gameCanvas')
+    expect(Game.mock.calls[0][0]).toEqual({canvas: "gameCanvas", paddle: "paddle"})
     // expect(canvas) to have some attributes that we can relate
 });
 

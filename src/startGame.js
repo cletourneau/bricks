@@ -2,7 +2,7 @@ import {Game} from "./game";
 
 
 export function start() {
-    let game = new Game("gameCanvas")
+    let game = new Game({canvas: "gameCanvas", paddle: "paddle"})
 
     let latestAnimate = performance.now()
 

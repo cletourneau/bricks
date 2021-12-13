@@ -1,18 +1,28 @@
+export const BOTTOM_MARGIN = 10
+
 export class Paddle {
-    constructor(startingPosition) {
-        this.position = startingPosition;
-        this.image = document.getElementById("paddle");
-        this.width = this.image.naturalWidth;
+    constructor(elementId, canvasSize) {
+        this.image = document.getElementById(elementId);
+        // this.width = this.image.naturalWidth;
         this.height = this.image.naturalHeight;
+        this.centerPosition = this.startingPosition(canvasSize);
     }
 
-    update(context) {
-        context.drawImage(
-            this.image,
-            this.position.x - this.width / 2,
-            this.position.y - this.height,
-            this.width,
-            this.height
-        );
+    // update(context) {
+    //     context.drawImage(
+    //         this.image,
+    //         this.centerPosition.x - this.width / 2,
+    //         this.centerPosition.y - this.height / 2,
+    //         this.width,
+    //         this.height
+    //     );
+    // }
+
+    startingPosition(canvasSize) {
+        return {x: canvasSize.width / 2, y: canvasSize.height - BOTTOM_MARGIN - (this.height / 2)};
     }
+
+    // move(newXPosition) {
+    //     this.centerPosition.x = newXPosition
+    // }
 }

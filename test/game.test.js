@@ -5,7 +5,10 @@ jest.mock('../src/paddle')
 
 
 describe('creating the game', () => {
-    const canvasId = 'gameCanvas'
+    const elementIds = {
+        canvas: "gameCanvas",
+        paddle: "paddle"
+    }
     const someContext = {}
     const mockGetContext = jest.fn(() => someContext)
     const mockAddEventListener = jest.fn()
@@ -17,15 +20,15 @@ describe('creating the game', () => {
         document.getElementById = mockGetElementById
     })
 
-    it('creates a paddle with canvas width and height', () => {
-        new Game(canvasId)
+    it('creates a paddle with element id and canvas size', () => {
+        new Game(elementIds)
 
-        expect(mockGetElementById.mock.calls[0][0]).toEqual(canvasId)
-        expect(Paddle).toHaveBeenCalledWith({width: 400, height: 200})
+        expect(mockGetElementById.mock.calls[0][0]).toEqual(elementIds.canvas)
+        expect(Paddle).toHaveBeenCalledWith(elementIds.paddle, {width: 400, height: 200})
     });
 
     it('keeps the 2d canvas context', () => {
-        const game = new Game(canvasId)
+        const game = new Game(elementIds)
 
         expect(mockGetContext.mock.calls[0][0]).toEqual('2d')
         expect(game.context).toBe(someContext)
@@ -37,7 +40,7 @@ describe('creating the game', () => {
             return {move: paddleMove}
         })
 
-        new Game(canvasId)
+        new Game(elementIds)
 
         expect(mockAddEventListener).toHaveBeenCalledWith('mousemove', expect.anything())
         const mouseMove = mockAddEventListener.mock.calls[0][1]

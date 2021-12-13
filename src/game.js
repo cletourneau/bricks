@@ -1,11 +1,11 @@
 import {Paddle} from "./paddle";
 
 export class Game {
-    constructor(canvasId) {
-        const canvas = document.getElementById(canvasId)
+    constructor(elementIds) {
+        const canvas = document.getElementById(elementIds.canvas)
         this.context = canvas.getContext('2d')
         this.canvasSize = {width: canvas.clientWidth, height: canvas.clientHeight}
-        this.paddle = new Paddle(this.canvasSize);
+        this.paddle = new Paddle(elementIds.paddle, this.canvasSize);
         this.listenForMouseMovement(canvas);
     }
 
@@ -16,7 +16,7 @@ export class Game {
     }
 
     update(delta) {
-        // this.context.clearRect(0, 0, this.width, this.height);
+        // this.context.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
         // this.paddle.update(this.context);
     }
 }
