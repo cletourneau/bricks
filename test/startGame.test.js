@@ -23,10 +23,11 @@ test('requests the animation frame', () => {
 })
 
 
-test('each animation frame updates the game with a delta time from the start', () => {
+test('each animation frame updates and redraw the game with a delta time from the start', () => {
     let gameUpdate = jest.fn()
+    let gameRedraw = jest.fn()
     Game.mockImplementation(() => {
-        return {update: gameUpdate}
+        return {update: gameUpdate, redraw: gameRedraw}
     })
 
     start();
@@ -46,4 +47,5 @@ test('each animation frame updates the game with a delta time from the start', (
     ]
     frames.forEach(expectAnimateUpdatesGame)
     expect(gameUpdate).toHaveBeenCalledTimes(5)
+    expect(gameRedraw).toHaveBeenCalledTimes(5)
 })

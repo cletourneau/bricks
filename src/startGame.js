@@ -9,6 +9,7 @@ export function start() {
     function animate(timestamp) {
         let delta = timestamp - latestAnimate
         game.update(delta)
+        game.redraw()
 
         latestAnimate = timestamp
         requestAnimationFrame(animate)

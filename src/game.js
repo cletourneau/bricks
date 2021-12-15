@@ -16,7 +16,11 @@ export class Game {
     }
 
     update(delta) {
-        // this.context.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
-        // this.paddle.update(this.context);
+        this.paddle.update(delta)
+    }
+
+    redraw() {
+        this.context.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
+        this.paddle.redraw(this.context)
     }
 }

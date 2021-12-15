@@ -8,15 +8,9 @@ export class Paddle {
         this.centerPosition = this.startingPosition(canvasSize);
     }
 
-    // update(context) {
-    //     context.drawImage(
-    //         this.image,
-    //         this.centerPosition.x - this.width / 2,
-    //         this.centerPosition.y - this.height / 2,
-    //         this.width,
-    //         this.height
-    //     );
-    // }
+    update(delta) {
+
+    }
 
     startingPosition(canvasSize) {
         return {x: canvasSize.width / 2, y: canvasSize.height - BOTTOM_MARGIN - (this.height / 2)};
@@ -25,4 +19,14 @@ export class Paddle {
     // move(newXPosition) {
     //     this.centerPosition.x = newXPosition
     // }
+
+    redraw(context) {
+        //     context.drawImage(
+        //         this.image,
+        //         this.centerPosition.x - this.width / 2,
+        //         this.centerPosition.y - this.height / 2,
+        //         this.width,
+        //         this.height
+        //     )
+    }
 }

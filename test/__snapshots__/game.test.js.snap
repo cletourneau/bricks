@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the game when redrawed clears the game canvas 1`] = `
+Array [
+  Object {
+    "props": Object {
+      "height": 600,
+      "width": 800,
+      "x": 0,
+      "y": 0,
+    },
+    "transform": Array [
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+    ],
+    "type": "clearRect",
+  },
+]
+`;
